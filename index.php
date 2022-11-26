@@ -39,16 +39,31 @@ mysqli_close($con);
 </head>
 <body>
     <h1>Data Mahasiswa</h1>
-    <table border="1" style="width:100%;">
+    <a href="insert.php">Tambah Data</a>
+    <table border=1 style="width: 100%;">
+    <?php //var_dump($mahasiswa); ?>
         <tr>
             <th>NIM</th>
             <th>Nama</th>
+            <th>Jenis Kelamin</th>
+            <th>Tempat Lahir</th>
+            <th>Tanggal Lahir</th>
+            <th>Alamat</th>
+            <th>Action</th>
         </tr>
-        <?php foreach($mahasiswa as $value): ?>
-        <tr>
-            <td><?php echo $value ["nim"]; ?></td>
-            <td><?php echo $value ["nama"]; ?></td>
-        </tr>
+        <?php foreach ($mahasiswa as $value): ?>
+            <tr>
+                <td><?php echo $value["nim"]; ?></td>
+                <td><?php echo $value["nama"]; ?></td>
+                <td><?php echo $value["jenis_kelamin"]; ?></td>
+                <td><?php echo $value["tempat_lahir"]; ?></td>
+                <td><?php echo $value["tanggal_lahir"]; ?></td>
+                <td><?php echo $value["alamat"]; ?></td>
+                <td>
+                    <a href="<?php echo "update.php?id=".$value["id"]; ?>">Edit</a>
+                    <a href="<?php echo "delete.php?id=".$value["id"]; ?>">Delete</a>
+                </td>
+            </tr>
         <?php endforeach; ?>
     </table>
 </body>
